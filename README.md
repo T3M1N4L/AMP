@@ -181,11 +181,6 @@ The short form of `Portable Network Graphics`
 <thead><tr><th title="Field #1">Color Type</th>
 <th title="Field #2" >Channels</th>
 <th title="Field #3" colspan="5">Bits per channel</th>
-<style>
-    th{
-        text-align:center
-    }
-</style>
 </tr></thead>
 <tbody><tr>
 <td> </td>
