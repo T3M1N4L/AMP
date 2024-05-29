@@ -1,0 +1,335 @@
+<title>AMP test</title>
+</a>
+<h1 id="preface-an-overview-of-my-topic">Preface - An overview of my topic</h1>
+<p>The objective of this paper is to create an inequality of a sweet spot of image quality and file size, between .PNG and .JPEG file types. Then using this infromation, I can decide which which file type is better overall. This paper will begin with a short introduction to each image type and some backgorund info.</p>
+<h1 id="section-one-background-information">Section One - Background Information</h1>
+<p>This section will provide some vital pieces of information on each file type and it&#39;s structure. </p>
+<h2 id="jpeg">JPEG</h2>
+<p><strong>JPEG Logo</strong></p>
+<p><img src="JPEG.png" alt="drawing" width="200"/></p>
+<p>/ˈdʒeɪpɛɡ/ JAY-peg</p>
+<p>The short form of <code>Joint Photographic Experts Group</code></p>
+<p><strong>Formal Defention:</strong> An image file format for the compression of digital imagpes. Employs lossy compression techniques to reduce file size of images while maintaining a visually acceptable level of quality. JPEG files typically utilize the &quot;.jpg&quot; or &quot;.jpeg&quot; file extension.</p>
+<blockquote>
+<p>[Quick Note] <code>.JPEG</code> and <code>.JPG</code> are the <strong>EXACT</strong> same thing</p>
+<ul>
+<li>The only reason <code>.JPG</code> was invented was becuase some really old file systems only supported three-letter file extensions</li>
+</ul>
+</blockquote>
+<h3 id="key-features-">Key Features:</h3>
+<ol>
+<li><strong>Lossy Compression</strong>: JPEG employs lossy compression, meaning that some image data is discarded during the compression process. This compression method results in smaller file sizes but may lead to a slight degradation in image quality.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] The great amount image data discarded during lossy compression can lead to generational degredation.</p>
+</blockquote>
+<ol>
+<li><strong>Variable Compression Levels</strong>: JPEG allows for different compression levels, enabling users to balance between file size and image quality. Higher compression levels result in smaller file sizes but may lead to more noticeable image artifacts.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] The variable compression levels allow for different quality and file sizes for a <strong>multitude</strong> of uses</p>
+</blockquote>
+<ol>
+<li><strong>Compatibility</strong>: JPEG is supported by virtually all web browsers, image editing software, and digital cameras, making it one of the most widely used image formats.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] The compatablity allows it to be used across a variety of devices without any hinderence</p>
+</blockquote>
+<ol>
+<li><strong>Color Support</strong>: JPEG supports both grayscale and full-color images, with the ability to display millions of colors.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] Although the color support is good enhough for the human population, it does not provide a variety of colors but rather just a 8-bit color depth. Other image file types provide greater support at the cost of file size. [Only allows Red, Green, and Blue channels, no alpha channels (RGB color support)]</p>
+</blockquote>
+<ol>
+<li><strong>Metadata</strong>: JPEG files can contain metadata such as EXIF (Exchangeable Image File Format) data, which stores information about the image, such as camera settings, date, and time.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] Metadata being intergrated into JPEG can make it easy to find out where the image was obtained/orignates from.</p>
+</blockquote>
+<h3 id="jpeg-structure">JPEG structure</h3>
+<p>JPEG files consist of several segments, including:</p>
+<ul>
+<li><p><strong>SOI (Start of Image)</strong>: Marks the beginning of the JPEG file.</p>
+</li>
+<li><p><strong>APPn (Application-specific Segments)</strong>: Contains various application-specific data, such as metadata.</p>
+</li>
+<li><p><strong>DQT (Define Quantization Table)</strong>: Specifies the quantization tables used for compressing image data.</p>
+</li>
+<li><p><strong>DHT (Define Huffman Table)</strong>: Defines Huffman tables used for entropy coding.</p>
+</li>
+<li><p><strong>SOF (Start of Frame)</strong>: Describes the image parameters such as image dimensions and color space.</p>
+</li>
+<li><p><strong>DRI (Define Restart Interval)</strong>: Specifies the interval for restart markers in the image data.</p>
+</li>
+<li><p><strong>Scan Data</strong>: Contains the compressed image data.</p>
+</li>
+<li><p><strong>EOI (End of Image)</strong>: Marks the end of the JPEG file.</p>
+</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>JPEG is commonly used for storing and sharing photographs, digital artwork, and other complex images on the web and in various digital media. It is favored for its balance between image quality and file size, making it suitable for a wide range of applications, including websites, social media, digital publications, and personal photography.</p>
+<h3 id="the-process-of-jpeg-compression">The process of JPEG compression</h3>
+<ol>
+<li><strong>Chrominance subsampling</strong>: This technique reduces the amount of information stored for color (chroma) compared to brightness (luma). Since the human eye is less sensitive to changes in color compared to changes in brightness, this method reduces file size by storing less detail for color information.</li>
+</ol>
+<blockquote>
+<p><img src="ChromaSubsampling.png" alt="drawing" width="400"/></p>
+</blockquote>
+<ol>
+<li><p><strong>Discrete cosine transformation (DCT) and quantization</strong>: In this step, the image is divided into small blocks, and each block undergoes a mathematical transformation called discrete cosine transform (DCT). This transforms the pixel values from the spatial domain to the frequency domain. Then, quantization is applied, which reduces the precision of the transformed coefficients. This step discards some data that contributes less to the overall image quality, further reducing the file size.</p>
+</li>
+<li><p><strong>Run-length Delta &amp; Huffman encoding</strong>: After quantization, the remaining data is compressed using run-length encoding, which reduces redundancy by representing repeated values as a single value and a count. Then, Huffman encoding is applied to further compress the data by assigning shorter codes to more frequently occurring symbols, taking advantage of the statistical properties of the data.</p>
+</li>
+</ol>
+<blockquote>
+<p>[Quick Note] This is a simple cut down summarization of <strong>Lossy Compression</strong>, it might not be fully accurate. But what I wrote above shows the main preface of lossy compression.</p>
+<ul>
+<li>Lossy compression is often used in scenarios where some loss of quality is acceptable in exchange for a significant reduction in file size. It is widely used in applications like image and video compression for the web, streaming media, and digital photography, where the goal is to balance file size with acceptable perceptual quality.</li>
+</ul>
+<p>JPEG compression can go from 0% [worst quality, least size, most compression], to 100% [best quality, most size, least compression]</p>
+<p>Some image viewing software like <a href="https://www.irfanview.com/">IrfanView</a>, can show the exact compression percentage</p>
+<p><img src="Irfanview.png" alt="drawing" width="500"/></p>
+<p>(Look at the number after <code>&quot;Quality&quot;</code>)</p>
+<p>JPEG compression is optimized with complex caclculations, so the difference is not as visible zommed out.</p>
+<p><img src="JPEGcompression0-100.png" alt="drawing" width="550"/></p>
+<p>But when zoomed in, the difference is clear.</p>
+<p><img src="JPEGcompressionzoomedin.png" alt="drawing" width="550"/></p>
+<h2 id="png">PNG</h2>
+<p>[PNG doesn&#39;t have a specific Logo]</p>
+</blockquote>
+<p><strong>PNG</strong></p>
+<p><img src="PNG.png" alt="drawing" width="200"/></p>
+<p>officially pronounced /pɪŋ/ PING, colloquially pronounced /ˌpiːɛnˈdʒiː/ PEE-en-JEE</p>
+<p>The short form of <code>Portable Network Graphics</code></p>
+<p><strong>Formal Defention</strong>: A raster graphics file format designed for the lossless compression and storage of digital images. It is widely used for web graphics, digital photography, and other applications where image quality and transparency are crucial. PNG files typically utilize the &quot;.png&quot; file extension.</p>
+<h3 id="key-features">Key Features</h3>
+<ol>
+<li><strong>Lossless Compression</strong>: PNG employs lossless compression techniques, which preserve all image data without sacrificing quality. Unlike lossy compression formats such as JPEG, PNG compression does not discard any image information, resulting in higher-quality images.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] Lossless compression keeps the original image information causing the file size to be rather high to other compression options.</p>
+</blockquote>
+<ol>
+<li><strong>Transparency Support</strong>: PNG supports alpha channel transparency, allowing for the inclusion of transparent areas within an image. This transparency feature is particularly useful for graphics such as logos, icons, and illustrations that require blending seamlessly with different backgrounds.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] Alpha Channel support can allow for transperency and translucency which makes PNG&#39;s a great choices for web graphics</p>
+</blockquote>
+<ol>
+<li><strong>Wide Color Depth</strong>: PNG supports various color depths, including grayscale, indexed color, and truecolor (24-bit RGB), enabling the representation of images with millions of colors. It also supports additional color spaces such as RGB with alpha channel (RGBA) and grayscale with alpha channel (GA), facilitating advanced image editing and manipulation.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] The wide range of colors allow for better image quality.</p>
+<table class="table table-bordered table-hover table-condensed">
+<thead><tr><th title="Field #1" >Color<br/>type</th>
+<th title="Field #2">Name</th>
+    <th colspan="4" title="Field #3">Binary</th>
+    <th >Masks</th>
+</tr></thead>
+<tbody><tr>
+<td align="center">-------</td>
+<td> --------------------------</td>
+<td>- </td>
+<td>A</td>
+<td>C</td>
+<td>P</td>
+<td>-----------------</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>Grayscale</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #ff8787;">0</td>
+<td> </td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>Truecolor</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #85ffad;">1</td>
+<td style="color: #ff8787;">0</td>
+<td>color</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>Indexed</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #85ffad;">1</td>
+<td style="color: #85ffad;">1</td>
+<td>color, pallete</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>Grayscale and Alpha</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #85ffad;">1</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #ff8787;">0</td>
+<td>alpha</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td>Truecolor and Alpha</td>
+<td style="color: #ff8787;">0</td>
+<td style="color: #85ffad;">1</td>
+<td style="color: #85ffad;">1</td>
+<td style="color: #ff8787;">0</td>
+<td>alpha, color</td>
+</tr>
+</tbody></table>
+<br>
+<table class="table table-bordered table-hover table-condensed">
+<thead><tr><th title="Field #1">Color Type</th>
+<th title="Field #2" >Channels</th>
+<th title="Field #3" colspan="5">Bits per channel</th>
+<style>
+    th{
+        text-align:center
+    }
+</style>
+</tr></thead>
+<tbody><tr>
+<td> </td>
+<td align="center"></td>
+<td>1</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td>Indexed</td>
+<td align="center" >1</td>
+<td  style="color: #85ffad;">1</td>
+<td align="center" style="color: #85ffad;">2</td>
+<td align="center" style="color: #85ffad;">4</td>
+<td align="center" style="color: #85ffad;">8</td>
+<td align="center" style="color: #ff8787;" >-</td>
+</tr>
+<tr>
+<td>Grayscale</td>
+<td align="center">1</td>
+<td style="color: #85ffad;">1</td>
+<td align="center" style="color: #85ffad;">2</td>
+<td align="center" style="color: #85ffad;">4</td>
+<td align="center" style="color: #85ffad;">8</td>
+<td align="center" style="color: #85ffad;">16</td>
+</tr>
+<tr>
+<td>Grayscale and Alpha</td>
+<td align="center">2</td>
+<td style="color: #ff8787;">-</td>
+<td align="center" style="color: #ff8787;">-</td>
+<td align="center" style="color: #ff8787;">-</td>
+<td align="center" style="color: #85ffad;">16</td>
+<td align="center" style="color: #85ffad;">32</td>
+</tr>
+<tr>
+<td>Truecolor</td>
+<td align="center">3</td>
+<td style="color: #ff8787;">-</td>
+<td align="center" style="color: #ff8787;">-</td>
+<td align="center" style="color: #ff8787;">-</td>
+<td align="center" style="color: #85ffad;">24</td>
+<td align="center" style="color: #85ffad;">48</td>
+</tr>
+<tr>
+<td>Truecolor and Alpha</td>
+<td align="center">4</td>
+<td style="color: #ff8787;">-</td>
+<td align="center" style="color: #ff8787;">-</td>
+<td align="center" style="color: #ff8787;">-</td>
+<td align="center" style="color: #85ffad;">32</td>
+<td align="center" style="color: #85ffad;">64</td>
+</tr>
+</tbody></table>
+
+
+<p>Human eyes can only see around 10 million colors. JPEGS support 8-bit color depth. 8 bit color means there are 8 colors in each channel with 8 shades of each color. So there are 8^2 colors in each channel. There are 3 channels in a JPEG, so there are 256x256x256 colors possible [<code>16,777,216</code>]. You may be asking WHY images need that many colors if even human eyes can&#39;t see the colors. The reason is photoshop.</p>
+</blockquote>
+<p><strong>A normal JPEG with 8-bit color depth</strong>: </p>
+<p><img src="OriginalBridge.png" alt="drawing" width="300"/><img src="Bridge1.png" alt="drawing" width="300"/><img src="Bridge2.png" alt="drawing" width="300"/><img src="Bridge3.png" alt="drawing" width="300"/><img src="Bridge4.png" alt="drawing" width="300"/></p>
+<p><img src="Bitdepthlacking.png" alt="drawing" width="400"/><img src="Bitdepthlacking2.png" alt="drawing" width="400"/></p>
+<blockquote>
+<p>As you can see, an 8-bit color depth image after brightening artifically, returns a very grainy and artifact-filled image </p>
+<p>PNG has access to truecolor, 24-bit color depth, which makes it the superior choice for photoshop</p>
+</blockquote>
+<ol>
+<li><strong>Compression Efficiency</strong>: PNG compression algorithms are optimized for efficient storage of image data while minimizing file size. Although PNG files tend to be larger than equivalent JPEG files, they offer superior image quality and transparency support, making them ideal for certain types of graphics where quality is paramount.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] Lossless compression causes the image quality to be high, but the file size to also be high.</p>
+<p>You might also assume PNG&#39;s don&#39;t have lossy compression, but they do, it&#39;s called indexing a PNG. The main premise is using calculations to find the closest and most reoccuring colors and making a pallete and only using that pallete. </p>
+</blockquote>
+<ol>
+<li><strong>Metadata</strong>: PNG files can contain metadata such as textual information, copyright details, and creation timestamps. This metadata enhances the organization and retrieval of PNG images and provides valuable context about the image content.</li>
+</ol>
+<blockquote>
+<p>[Quick Note] Titles, Author, and much more information can be displayed thorugh metadata in a PNG image.</p>
+</blockquote>
+<h1 id="section-two-determining">Section Two - Determining</h1>
+<h2 id="which-file-format-to-use-for-specific-needs">Which file format to use for specific needs</h2>
+<h3 id="png">PNG</h3>
+<ul>
+<li><p><strong>Lossless Compression</strong>: PNG uses lossless compression, meaning it preserves all the original image data without any loss of quality. This makes it ideal for images that require high quality and sharpness, such as diagrams, logos, and text-based graphics.</p>
+</li>
+<li><p><strong>Supports Transparency</strong>: PNG supports alpha channels, allowing for transparent backgrounds or partially transparent images. This makes PNG suitable for images that need to be overlaid on different backgrounds, like logos or icons.</p>
+</li>
+<li><p><strong>Wide Color Support</strong>: PNG supports a wide range of color depths including truecolor (24-bit) and indexed color (8-bit), making it versatile for various types of images.</p>
+</li>
+<li><p><strong>No Artifacts</strong>: Since PNG is lossless, it doesn&#39;t introduce compression artifacts, ensuring a clean and crisp image without any distortion or blurriness.</p>
+</li>
+<li><p><strong>Animation</strong>: Since PNG/APNG allows multiple frames with devaiations of seconds in which it is displayed, animation is possible.</p>
+</li>
+</ul>
+<h3 id="jpeg">JPEG</h3>
+<ul>
+<li><p><strong>High Compression Ratio</strong>: JPEG compression is highly efficient, allowing for significant reduction in file size while retaining decent image quality. This makes it suitable for photographs and images with complex color gradients.</p>
+</li>
+<li><p><strong>Widespread Compatibility</strong>: JPEG is supported by virtually all devices and software, making it a universal format for sharing and displaying images across different platforms.</p>
+</li>
+<li><p><strong>Variable Quality Levels</strong>: JPEG allows users to adjust the level of compression, balancing between file size and image quality according to their needs. This flexibility is particularly useful for web publishing and digital photography.</p>
+</li>
+<li><p><strong>Progressive Loading</strong>: JPEG supports progressive loading, meaning that a low-resolution version of the image is displayed first, followed by higher resolutions. This allows for faster initial display, making it suitable for web pages and online viewing.</p>
+</li>
+</ul>
+<h1 id="works-cited">Works Cited</h1>
+<p>Contributors to Wikimedia projects. “JPEG.” Wikipedia, <a href="https://en.wikipedia.org/wiki/JPEG">https://en.wikipedia.org/wiki/JPEG</a>. Accessed 10 May 2024.</p>
+<p>Contributors to Wikimedia projects. “Chroma Subsampling.” Wikipedia, 13 Apr. 2024, <a href="https://en.wikipedia.org/wiki/Chroma_subsampling">https://en.wikipedia.org/wiki/Chroma_subsampling</a>. Accessed 10 May 2024.</p>
+<p>Contributors to Wikimedia projects. “PNG.” Wikipedia, 6 May 2024, <a href="https://en.wikipedia.org/wiki/PNG">https://en.wikipedia.org/wiki/PNG</a>. Accessed 10 May 2024.</p>
+<p>MDN contributors. “Lossy Compression - MDN Web Docs Glossary: Definitions of Web-Related Terms.” MDN Web Docs, 7 Mar. 2024, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Lossy_compression">https://developer.mozilla.org/en-US/docs/Glossary/Lossy_compression</a>. Accessed 10 May 2024.</p>
+<p>MDN contributors. “Lossless Compression - MDN Web Docs Glossary: Definitions of Web-Related Terms.” MDN Web Docs, 7 Mar. 2024, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Lossless_compression">https://developer.mozilla.org/en-US/docs/Glossary/Lossless_compression</a>. Accessed 10 May 2024.</p>
+<p>MDN contributors. “Lossless Compression - MDN Web Docs Glossary: Definitions of Web-Related Terms.” MDN Web Docs, 7 Mar. 2024, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Lossless_compression">https://developer.mozilla.org/en-US/docs/Glossary/Lossless_compression</a>. Accessed 10 May 2024.</p>
+<p>ThioJoe. “Are You Using the WRONG Image Format?” YouTube, Video, 28 June 2023, <a href="https://www.youtube.com/watch?v=68H1H6Z_gz4">https://www.youtube.com/watch?v=68H1H6Z_gz4</a>. Accessed 10 May 2024.   </p>
+
+<style>
+* {
+font-family: monospace;
+}
+body {
+    background-color: black;
+	color: #e6edf3;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #21262d;
+  margin: 1em 0;
+  padding: 0;
+}
+code {
+    background: #21262d;
+    border-radius: 5px;
+    line-height: 26px;
+    padding: 3px;
+}
+a {
+ color:#8ab6f3;
+}
+</style>
