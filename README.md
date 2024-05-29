@@ -177,7 +177,7 @@ The short form of `Portable Network Graphics`
 </tr>
 </tbody></table>
 
-><table class="table table-bordered table-hover table-condensed">
+<table class="table table-bordered table-hover table-condensed">
 <thead><tr><th title="Field #1">Color Type</th>
 <th title="Field #2" >Channels</th>
 <th title="Field #3" colspan="5">Bits per channel</th>
