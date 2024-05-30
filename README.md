@@ -309,6 +309,12 @@ So the common factor for this equation which is obviously a growth, is 1.01648. 
 
 A sweet spot for the exporting quality can be found using an equation I made : 
 
+<img src="RatingEquation.png" alt="drawing" width="750"/>
+
+With some guess and check, the most perfect quality value that has the best quality but also the least filesize mathematically is **`62`** but there are values near which also yield similar results.
+
+<img src="Inequality.png" alt="drawing" width="750"/>
+
 # Works Cited
 
 Contributors to Wikimedia projects. “JPEG.” Wikipedia, https://en.wikipedia.org/wiki/JPEG. Accessed 10 May 2024.
