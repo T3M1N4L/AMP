@@ -291,6 +291,12 @@ I wanted to create a formula to predict how big the file size would be depending
 
 In photoshop, you can export a JPEG image with different quality levels ranging from 1-100. Using this exporting method I can calculate a formula that would return how much exponentially the file size would increase when the quality is 100 in contrast to when the quality is 1.
 
+<img src="1.jpg" alt="drawing" width="400"/><img src="100.jpg" alt="drawing" width="400"/>
+
+
+
+<img src="FE.png" alt="drawing" width="500"/>
+
 Here is a graph that shows the relationship with quality and and file size. This grpah obviously shows that the graph has a exponential relationship.
 <img src="JPGquality.png" alt="drawing" width="700"/>
 
