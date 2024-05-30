@@ -285,6 +285,30 @@ The short form of `Portable Network Graphics`
 
 * **Progressive Loading**: JPEG supports progressive loading, meaning that a low-resolution version of the image is displayed first, followed by higher resolutions. This allows for faster initial display, making it suitable for web pages and online viewing.
 
+# Section three - Various Observations
+
+I wanted to create a formula to predict how big the file size would be depending on the quality, while also finding a sort of sweet spot that balances file size and quality. 
+
+In photoshop, you can export a JPEG image with different quality levels ranging from 1-100. Using this exporting method I can calculate a formula that would return how much exponentially the file size would increase when the quality is 100 in contrast to when the quality is 1.
+
+Here is a graph that shows the relationship with quality and and file size. This grpah obviously shows that the graph has a exponential relationship.
+<img src="JPGquality.png" alt="drawing" width="700"/>
+
+An exponential regression formula performed on the data gives the following - 
+
+```
+r ^ 2 = 0.9781
+a = 143796
+b = 1.01648
+``` 
+<img src="EXPreg.png" alt="drawing" width="500"/>
+
+So the common factor for this equation which is obviously a growth, is 1.01648. This means you should expect the file to grow by that much exponentially. The a value would be different for each image so a quick calculation from the original image would give a vale which you could calculate for your own image. The value for `a` can be calculated by by finding 48.091021% of the size of the original image in bytes, and then rouding all intermediate values to the nearest whole number. 
+
+<img src="JPGQualityEquation.png" alt="drawing" width="750"/>
+
+A sweet spot for the exporting quality can be found using an equation I made : 
+
 # Works Cited
 
 Contributors to Wikimedia projects. “JPEG.” Wikipedia, https://en.wikipedia.org/wiki/JPEG. Accessed 10 May 2024.
